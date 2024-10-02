@@ -1,0 +1,62 @@
+ls XML field,Example
+bookID,"OCLC:12863487,OCLC:214809481,OCLC:228657952,UCAL:B4809968"
+Title,"Classification, KDZ, KG-KH (1984)"
+ItemID,uc1.b4809968
+record,6106228
+Author,Library of Congress.
+UseDate,1984
+Date,1984
+,
+EnumDate,1984
+BothDate,1984
+ItemClickData,"{""id"":""uc1.b4809968"",""AB_label"":""B_dupe"",""rank_on_page"":1}"
+ABLabel,B_dupe
+result_number,1
+relevance,290040.66
+rights,1
+fulltext,1
+emergency,0
+Key,fulltext
+PtSearchHref,/cgi/pt/search?id=uc1.b4809968;debug=xml;
+PtHref,/cgi/pt?id=uc1.b4809968;debug=xml;
+Subject,"<facetValue name=""United States"" class=""showfacet Subject"">
+<facetCount>130,155</facetCount>
+<url>ls?q1=apple;field1=ocr;a=srchls;lmt=all;debug=xml&facet=topicStr:""United%20States""</url>
+<selected>false</selected>
+</facetValue>"
+Author,"<facetField name=""Author"" normName=""Author"">
+<facetValue name=""United States. Office of the Federal Register."" class=""showfacet Author"">
+<facetCount>11,477</facetCount>
+<url>ls?q1=apple;field1=ocr;a=srchls;lmt=all;debug=xml&facet=authorStr:""United%20States.%20Office%20of%20the%20Federal%20Register.""</url>
+<selected>false</selected>
+</facetValue>"
+Language,"<facetField name=""Language"" normName=""Language"">
+<facetValue name=""English"" class=""showfacet Language"">
+<facetCount>2,874,301</facetCount>
+<url>ls?q1=apple;field1=ocr;a=srchls;lmt=all;debug=xml&facet=language008_full:""English""</url>
+<selected>false</selected>
+</facetValue>"
+Place of Publication,"<facetField name=""Place of Publication"" normName=""Place_of_Publication"">
+<facetValue name=""United States"" class=""showfacet Place_of_Publication"">
+<facetCount>1,905,046</facetCount>
+<url>ls?q1=apple;field1=ocr;a=srchls;lmt=all;debug=xml&facet=countryOfPubStr:""United%20States""</url>
+<selected>false</selected>
+</facetValue>"
+Date of Publication,"<facetField name=""Date of Publication"" normName=""Date_of_Publication"">
+<facetValue name=""1990-1999"" class=""showfacet Date_of_Publication"">
+<facetCount>336,347</facetCount>
+<url>ls?q1=apple;field1=ocr;a=srchls;lmt=all;debug=xml&facet=bothPublishDateRange:""1990-1999""</url>
+<selected>false</selected>
+</facetValue>"
+Original Format,"<facetField name=""Original Format"" normName=""Original_Format"">
+<facetValue name=""Book"" class=""showfacet Original_Format"">
+<facetCount>1,679,861</facetCount>
+<url>ls?q1=apple;field1=ocr;a=srchls;lmt=all;debug=xml&facet=format:""Book""</url>
+<selected>false</selected>
+</facetValue>"
+Original Location,"<facetField name=""Original Location"" normName=""Original_Location"">
+<facetValue name=""University of Michigan"" class=""showfacet Original_Location"">
+<facetCount>802,755</facetCount>
+<url>ls?q1=apple;field1=ocr;a=srchls;lmt=all;debug=xml&facet=htsource:""University%20of%20Michigan""</url>
+<selected>false</selected>
+</facetValue>"
