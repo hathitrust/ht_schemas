@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "FullTextItem",
-  "description": "An item from the full text search results",
   "type": "object",
+  "$id": "https://hathitrust.org/fulltext_schemas/fulltext_item_schema",
   "_comment": "uniqueItems is set to true to ensure that there are no duplicate items in the array. The minItems is set to 1 to ensure that there is at least one item in the array.",
   "properties": {
     "bookID": {
@@ -23,7 +23,7 @@
       "type": "string"
     },
     "record": {
-      "description": "",
+      "description": "Catalog record ID",
       "type": "string"
     },
     "author": {
@@ -51,10 +51,6 @@
       "description": "First date in the Solr field bothPublishDate. In the front-end, this is the field name BothDate.",
       "type": "integer"
     },
-    "itemClickData": {
-      "description": "ClickData model results. In the front-end this is the field name ItemClickData.",
-      "$ref": "clickdata_model.json"
-    },
     "abLabel": {
       "description": "Label obtained by interleave. In the front-end, this is the field name ABLabel.",
       "type": "string"
@@ -65,7 +61,7 @@
     },
     "relevance": {
       "description": "Solr query score value. In the front-end, this is the field name relevance.",
-      "type": "float"
+      "type": "number"
     },
     "rights": {
       "description": "Rights field from Solr. In the front-end, this is the field name rights.",
@@ -73,23 +69,20 @@
     },
     "fulltext": {
       "description": "Flag indicating the item access status. In the front-end, this is the field name fulltext.",
-      "type": "enum",
       "enum": [
-        "0",
-        "1"
+        0,
+        1
       ]
     },
     "emergency": {
       "description": "Flag indicating the emergency_flag is access_status is allow. In the front-end, this is the field name emergency.",
-      "type": "enum",
       "enum": [
-        "0",
-        "1"
+        0,
+        1
       ]
     },
     "key": {
       "description": "Calculated flag according emergency and fulltext flag. In the front-end this is the field name Key.",
-      "type": "enum",
       "enum": [
         "limited",
         "emergency",
@@ -104,62 +97,17 @@
     "ptHref": {
       "description": "URL to the item in Pageturner. In the front-end, this is the field name PtHref.",
       "type": "string"
-    },
-    "subjectFacet": {
-      "description": "Subject facet generated using the Solr field topicStr. In the front-end, this is the field name Subject.",
-      "$ref": "facets_model.json"
-    },
-    "authorFacet": {
-      "description": "Author facet generated using the Solr field authorStr. In the front-end, this is the field name Author.",
-      "$ref": "facets_model.json"
-    },
-    "languageFacet": {
-      "description": "Language facet generated using the Solr field language008_full. In the front-end, this is the field name Language.",
-      "$ref": "facets_model.json"
-    },
-    "placeofPublicationFacet": {
-      "description": "Place of publication facet generated using the Solr field countryOfPubStr. In the front-end, this is the field name Place of Publication.",
-      "$ref": "facets_model.json"
-    },
-    "dateofPublicationFacet": {
-      "description": "Date of publication facet generated using the Solr field bothPublishDateRange. In the front-end, this is the field name Date of Publication.",
-      "$ref": "facets_model.json"
-    },
-    "originalFormatFacet": {
-      "description": "Original format facet generated using the Solr field format. In the front-end, this is the field name Original Format.",
-      "$ref": "facets_model.json"
-    },
-    "originalLocationFacet": {
-      "description": "Original location facet generated using the Solr field htsource. In the front-end, this is the field name Original Location.",
-      "$ref": "facets_model.json"
     }
   },
   "required": [
-    "bookID",
     "title",
     "itemID",
     "record",
-    "author",
-    "useDate",
-    "date",
-    "enumDate",
-    "bothDate",
-    "itemClickData",
-    "abLabel",
-    "result_number",
-    "relevance",
     "rights",
     "fulltext",
     "emergency",
     "key",
     "ptSearchHref",
-    "ptHref",
-    "subjectFacet",
-    "authorFacet",
-    "languageFacet",
-    "placeofPublicationFacet",
-    "dateofPublicationFacet",
-    "originalFormatFacet",
-    "originalLocationFacet"
+    "ptHref"
   ]
 }

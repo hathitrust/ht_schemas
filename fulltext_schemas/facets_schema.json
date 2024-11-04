@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Solr facets output",
+  "type": "object",
+  "$id": "https://hathitrust.org/fulltext_schemas/facets_schema",
+  "description": "The facets output returned by the Solr search",
+  "properties": {
+    "name": {
+      "description": "The name of the facet",
+      "type": "string"
+    },
+    "values": {
+      "type": ["array"],
+      "items":
+        {
+          "type": ["object"],
+          "properties": {
+            "name": { "type": "string"},
+            "count": {"type": "integer"}
+          },
+          "required": [ "name", "count" ],
+          "additionalProperties": false
+        },
+      "required": [
+        "name",
+        "values"
+      ]
+    }
+  }
+}

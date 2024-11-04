@@ -1,0 +1,15 @@
+ {
+    "name": "subjectFacet",
+    "values": [
+      { "name": "Great Britain", "count": 9359 },
+      { "name": "English literature", "count": 8821 },
+      { "name": "History", "count": 8723 },
+      { "name": "United States", "count": 8693 },
+      { "name": "Fiction", "count": 8683 },
+      { "name": "England", "count": 8673 },
+      { "name": "Literature", "count": 8663 },
+      { "name": "France", "count": 8653 },
+      { "name": "Poetry", "count": 8643 },
+      { "name": "Germany", "count": 8633 }
+    ]
+  }
