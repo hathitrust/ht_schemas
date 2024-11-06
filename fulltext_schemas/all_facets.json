@@ -2,36 +2,36 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "FullText list of facets",
   "type": "array",
-  "$id": "https://hathitrust.org/fulltext_schemas/fulltext_facets_schema",
+  "$id": "https://hathitrust.org/fulltext_schemas/all_facets.json",
   "description": "The facets output returned by the fulltext search",
   "items": {
     "subjectFacet": {
         "description": "Subject facet generated using the Solr field topicStr. In the front-end, this is the field name Subject.",
-        "$ref": "/fulltext_schemas/facets_schema"
+        "$ref": "/fulltext_schemas/facets.json"
       },
       "authorFacet": {
         "description": "Author facet generated using the Solr field authorStr. In the front-end, this is the field name Author.",
-        "$ref": "/fulltext_schemas/facets_schema"
+        "$ref": "/fulltext_schemas/facets.json"
       },
       "languageFacet": {
         "description": "Language facet generated using the Solr field language008_full. In the front-end, this is the field name Language.",
-        "$ref": "/fulltext_schemas/facets_schema"
+        "$ref": "/fulltext_schemas/facets.json"
       },
       "placeofPublicationFacet": {
         "description": "Place of publication facet generated using the Solr field countryOfPubStr. In the front-end, this is the field name Place of Publication.",
-        "$ref": "/fulltext_schemas/facets_schema"
+        "$ref": "/fulltext_schemas/facets.json"
       },
       "dateofPublicationFacet": {
         "description": "Date of publication facet generated using the Solr field bothPublishDateRange. In the front-end, this is the field name Date of Publication.",
-        "$ref": "/fulltext_schemas/facets_schema"
+        "$ref": "/fulltext_schemas/facets.json"
       },
       "originalFormatFacet": {
         "description": "Original format facet generated using the Solr field format. In the front-end, this is the field name Original Format.",
-        "$ref": "/fulltext_schemas/facets_schema"
+        "$ref": "/fulltext_schemas/facets.json"
       },
       "originalLocationFacet": {
         "description": "Original location facet generated using the Solr field htsource. In the front-end, this is the field name Original Location.",
-       "$ref": "/fulltext_schemas/facets_schema"
+       "$ref": "/fulltext_schemas/facets.json"
       }
     }
 }

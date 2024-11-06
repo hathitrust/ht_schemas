@@ -1,11 +1,7 @@
 import json
 import os
-from jsonschema import validate
 from jsonschema.validators import Draft202012Validator
 from jsonschema.exceptions import ValidationError
-from pathlib import Path
-
-
 
 # referencing.Resource: which represents a specific JSON Schema (often a Python dict) along with
 # a specific referencing.Specification it is to be interpreted under.
@@ -13,27 +9,36 @@ from pathlib import Path
 # the JSON Schema specification. => Draft202012Validator
 
 from referencing import Registry, Resource
-from referencing.exceptions import NoSuchResource
 from referencing.jsonschema import DRAFT202012
 
-def register_schemas(path_schema: str = None, uri: str = None):
+def create_schema_reference(schema_directory: str):
+    """
+    Set up the jsonschema validator to load local files
+    :param schema_directory: The folder containing the schemas
+    :return: The schema reference.
+    Each schema is a tuple with the schema id and the schema content
+    """
+    ht_references = []
+    for file in os.listdir(schema_directory):
+        if file.endswith(".json"):
+            print(f'https://hathitrust.org/fulltext_schemas/{file}')
+            with open(os.path.join(schema_directory, file)) as f:
+                schema_content = json.load(f)
+                ht_references.append((schema_content['$id'], Resource.from_contents(schema_content, DRAFT202012)))
 
-    #dir_name = os.path.dirname(__file__)
-    #schema_dir = os.path.join(dir_name, 'fulltext_schemas')
+    return ht_references
 
-    with open(path_schema) as f:
-        schema_content = json.load(f)
+def register_schemas(ht_references: list = None):
 
-    schema = Resource.from_contents(schema_content)
+    ht_registry = Registry()
+    for reference in ht_references:
+        ht_registry = ht_registry.with_resource(reference[0], reference[1])
+    return ht_registry
 
-    registry = Registry().with_resource(uri, schema)
+def validate_schema(path_schema: str = None, path_document: str = None,
+         default_register: Registry = None):
 
-    print(registry.contents(uri=uri))
-
-    return registry
-
-def main(schema_name: str = None, path_schema: str = None, path_document: str = None,
-         ht_register: Registry = None):
+    schema_name = os.path.basename(path_schema)
 
     with open(path_schema) as f:
         schema = json.load(f)
@@ -41,11 +46,9 @@ def main(schema_name: str = None, path_schema: str = None, path_document: str = 
     with open(path_document) as f:
         document = json.load(f)
 
-    #print(ht_register.contents(uri=f'https://hathitrust.org/fulltext_schemas/fulltext_item_schema'))
-    validator = Draft202012Validator(schema, registry=ht_register)
+    validator = Draft202012Validator(schema, registry=default_register)
 
     try:
-        #validate(instance=document, schema=schema, )
         validator.validate(document)
         print(f"The document is valid according to the schema {schema_name}")
     except ValidationError as e:
@@ -59,15 +62,22 @@ if __name__ == "__main__":
     dir_name = os.path.dirname(__file__)
     schema_dir = os.path.join(dir_name, 'fulltext_schemas')
 
-    for file in os.listdir(schema_dir):
-        print(file)
-        if file.endswith(".json"):
-            register = register_schemas(path_schema= os.path.join(schema_dir, file),
-                         uri=f'https://hathitrust.org/fulltext_schemas/{file}')
+    references = create_schema_reference(schema_directory=schema_dir)
+
+    ht_register = register_schemas(ht_references=references)
+
+    # Validate full_text item
+    validate_schema(path_schema=f'{schema_dir}/each_document.json',
+                    path_document='fulltext_json/each_document.json', default_register=ht_register)
+
+    # Validate full_text each facets
+    validate_schema(path_schema=f'{schema_dir}/facets.json',
+                    path_document='fulltext_json/facets.json', default_register=ht_register)
+
+    # Validate full_text list of facets
+    validate_schema(path_schema=f'{schema_dir}/all_facets.json',
+                    path_document='fulltext_json/all_facets.json', default_register=ht_register)
 
     # Validate full_text interface
-    main(schema_name="fulltext_item_schema", path_schema=f'{schema_dir}/fulltext_item_schema.json',
-         path_document='full_text_json/fulltext_item.json', ht_register=register)
-
-    main(schema_name="fulltext_interface", path_schema=f'{schema_dir}/fulltext_interface_schema.json',
-         path_document='full_text_json/fulltext_interface.json', ht_register=register)
+    validate_schema(path_schema=f'{schema_dir}/output_interface.json',
+                    path_document='fulltext_json/output_interface.json', default_register=ht_register)

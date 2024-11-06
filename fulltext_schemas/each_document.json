@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "FullTextItem",
   "type": "object",
-  "$id": "https://hathitrust.org/fulltext_schemas/fulltext_item_schema",
+  "$id": "https://hathitrust.org/fulltext_schemas/each_document.json",
   "_comment": "uniqueItems is set to true to ensure that there are no duplicate items in the array. The minItems is set to 1 to ensure that there is at least one item in the array.",
   "properties": {
     "bookID": {

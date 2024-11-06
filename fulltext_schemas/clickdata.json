@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Click Data",
+  "$id": "https://hathitrust.org/fulltext_schemas/clickdata.json",
+  "type": "object",
+  "properties": {
+    "user_agent": {
+      "type": "string"
+    },
+    "ip": {
+      "type": "string",
+      "format": "ipv4"
+    },
+    "accept_language": {
+      "type": "string"
+    },
+    "A_qtime": {
+      "type": "string"
+    },
+    "query_string": {
+      "type": "string"
+    },
+    "test_type": {
+      "type": "enum",
+        "enum": [
+            "normal",
+            "intl",
+            "side_intl",
+            "side_AB"
+        ]
+    },
+    "entries_per_page": {
+      "type": "string"
+    },
+    "num_found": {
+      "type": "integer"
+    },
+    "accept_encoding": {
+      "type": "string"
+    },
+    "B_qtime": {
+      "type": "string"
+    },
+    "accept": {
+      "type": "string"
+    },
+    "referer": {
+      "type": "string"
+    },
+    "logged_in": {
+      "type": "string"
+    },
+    "session": {
+      "type": "string"
+    },
+    "B_num_found": {
+      "type": "integer"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "A_rs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "B_rs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "I_rs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

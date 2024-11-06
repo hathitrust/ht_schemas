@@ -1,6 +1,4 @@
-{
-  "search_facets": [
-    {
+[{
       "name": "subjectFacet",
       "values": [
         {
@@ -77,44 +75,4 @@
           "count": 25
         }
       ]
-    }
-  ],
-  "search_results": [
-    {
-      "itemID": "chi.29215625",
-      "title": "The Anglo Irish",
-      "record": "100859789",
-      "author": [
-        "Banim, John, 1798-1842"
-      ],
-      "useDate": "1838",
-      "date": "1838",
-      "enumDate": "1838",
-      "bothDate": "1838",
-      "rights": 1,
-      "fulltext": 1,
-      "emergency": 0,
-      "key": "limited",
-      "ptSearchHref": "/cgi/pt/search?id=uc1.b4809968;debug=xml;",
-      "ptHref": "/cgi/pt?id=uc1.b4809968;debug=xml;"
-    },
-    {
-      "itemID": "chi.29215625",
-      "title": "The Anglo Irish",
-      "record": "100859789",
-      "author": [
-        "Banim, John, 1798-1842"
-      ],
-      "useDate": "1838",
-      "date": "1838",
-      "enumDate": "1838",
-      "bothDate": "1838",
-      "rights": 1,
-      "fulltext": 1,
-      "emergency": 0,
-      "key": "limited",
-      "ptSearchHref": "/cgi/pt/search?id=uc1.b4809968;debug=xml;",
-      "ptHref": "/cgi/pt?id=uc1.b4809968;debug=xml;"
-    }
-  ]
-}
+    }]

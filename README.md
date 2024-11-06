@@ -51,3 +51,4 @@ Calculated fields in ls interface:
 ## Python libraries for JSON schema
 
 * https://python-jsonschema.readthedocs.io/en/latest/referencing/
+* https://builtin.com/software-engineering-perspectives/python-json-schema

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fulltext front-end interface",
+  "$id": "https://hathitrust.org/fulltext_schemas/output_interface.json",
+  "description": "Schema for the full text search results",
+  "type": "object",
+  "properties": {
+    "click_data": {
+      "type": "object",
+        "$ref": "/fulltext_schemas/clickdata.json"
+    },
+    "search_facets": {
+      "$ref": "/fulltext_schemas/all_facets.json"
+    },
+    "search_results": {
+      "type": "array",
+      "items": {
+        "$ref": "/fulltext_schemas/each_document.json"
+        }
+    }
+  },
+  "required": [
+    "search_facets",
+    "search_results",
+    "click_data"
+  ]
+}
